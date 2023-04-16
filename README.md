@@ -56,3 +56,11 @@ There will be three major tables
 <li>User Schema</li>
 <li>Event Schema</li>
 <li>Chat Schema</li>
+
+<br>
+
+# Built by  
+
+→ [Dillpreet Grover](https://github.com/dfordp)
+
+→ [Kajol Shah](https://github.com/Kajolshah29) 
