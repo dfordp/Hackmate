@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     userAbout: {type: String, required: true},
     previousEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
     createdEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
+    interestedIn: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
     githubUsername: {type: String, required: false},
     instaUsername: {type: String, required: false},
     twitterUsername: {type: String, required: false},
