@@ -28,15 +28,15 @@ const Login = () => {
          <div className="p-5">
             <img src={logo} width="600px" />
           </div>
-          <div className="shadow-2xl bg-googleRed mb-2 w-30 h-15 rounded-md">
+          <div className="shadow-2xl bg-googleRed mb-4 w-30 h-15 rounded-md pr-2">
             <Button onClick={signInWithGoogle}>
               <BsGoogle className="mr-2 ml-1 flex flex-row justify-center items-center saturate-0 brightness-200" />
               <span className='text-white '>Sign In With Google</span>
             </Button>
           </div>
-          <div className="shadow-2xl bg-githubBlack mb-2 w-19 h-15 rounded-md">
+          <div className="shadow-2xl bg-githubBlack mb-2 w-19 h-15 rounded-md pr-3">
             <Button onClick={signInWithGithub}>
-              <BsGithub className="mr-2 ml-1 flex flex-row justify-center items-center  saturate-0 brightness-200" />
+              <BsGithub className="scale-110 mr-3 ml-1 flex flex-row justify-center items-center saturate-0 brightness-200" />
               <span className='text-white '>Sign In With Github</span>
             </Button>
           </div>

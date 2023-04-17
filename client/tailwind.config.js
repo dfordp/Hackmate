@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
      "./index.html",
@@ -9,11 +8,20 @@ export default {
       backgroundColor: {
         blackOverlay: 'rgba(0,0,0,0.6)',
         googleRed:'#FF5555',
-        githubBlack:'#000000'
+        githubBlack:'#000000',
+        lightModeWhite:'#EAEAEA'
       },
       fontFamily:{
-        'sans': ['Inter'],
-      }
+        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+      },
+      animation: {
+        'slide-in': 'slide-in 0.5s ease-out',
+        'slide-fwd': ' slide-fwd 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+      },
+      cursor: {
+        'zoom-in': 'zoom-in',
+        pointer: 'pointer',
+      },
     },
   },
   plugins: [],

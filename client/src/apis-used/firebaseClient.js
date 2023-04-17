@@ -7,7 +7,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from 
 
 
 const firebaseConfig = {
-    
+   
   };
 
   const app = initializeApp(firebaseConfig);

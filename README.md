@@ -1,3 +1,7 @@
+![image](./client/public/hackmate-logo.png)
+
+
+<br>
 # Hackmate
 
 A platform that allows users to interact with people of different technical expertise for differnt hackathons ,so that They can build , learn and create new technologies practically  

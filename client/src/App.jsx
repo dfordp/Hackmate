@@ -3,6 +3,7 @@ import { Routes,Route,useNavigate } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Main from './pages/Main'
+import CreateEvent from './pages/CreateEvent'
 
 const App = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const App = () => {
     const User =localStorage.getItem('name') !== undefined ? localStorage.getItem('name') : localStorage.clear();
 
     if (User) {
-      navigate('/')
+      navigate('/home')
     } else {
       navigate('/login')
     }
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/*" element={<Main />} />
+      <Route path="/home" element={<Main />} />
     </Routes>
   )
 }
