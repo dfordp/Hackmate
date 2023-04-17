@@ -15,17 +15,17 @@ const Header = () => {
       </div>
       <div className='flex justify-end mr-4'>
         <div>
-          <button className='pt-6 scale-75 text-gray-500 mr-2 ml-4 transition duration-300 ease-in-out hover:text-pink-400  cursor-pointer'>
+          <button className='pt-6 w-6 scale-60 text-gray-500 mr-2 ml-2 transition duration-300 ease-in-out hover:text-pink-400  cursor-pointer'>
             <ThemeIcon/>
           </button>
         </div>
         <div className='items-center justify-end'>
-          <button className='pt-6 scale-85 text-gray-500 mr-2 ml-2 transition duration-300 ease-in-out hover:text-pink-400  cursor-pointer'>
+          <button className='pt-6 w-5 scale-110 text-gray-500 mr-2 ml-2 transition duration-300 ease-in-out hover:text-pink-400  cursor-pointer'>
             <IoMdAddCircle />
           </button>
         </div>
         <div>
-          <img src={avatar} width="30px" className='rounded-full mt-5 ml-2'/>
+          <img src={avatar} width="35px" className='rounded-full mt-5 ml-2'/>
         </div>
       </div>
     </div>

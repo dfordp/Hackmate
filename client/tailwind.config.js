@@ -9,7 +9,8 @@ export default {
         blackOverlay: 'rgba(0,0,0,0.6)',
         googleRed:'#FF5555',
         githubBlack:'#000000',
-        lightModeWhite:'#EAEAEA'
+        lightModeWhite:'#F8F8F8',
+        component1:"#D9D9D9"
       },
       fontFamily:{
         'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
@@ -22,6 +23,9 @@ export default {
         'zoom-in': 'zoom-in',
         pointer: 'pointer',
       },
+      gap:{
+        '100':'100px',
+      }
     },
   },
   plugins: [],
