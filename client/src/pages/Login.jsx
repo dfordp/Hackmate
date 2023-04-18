@@ -8,10 +8,6 @@ import { signInWithGoogle,signInWithGithub } from '../apis-used/firebaseClient.j
 
 
 const Login = () => {
-  // const navigate = useNavigate()
-  // const navigatetoMain = () => {
-  //   navigate('/')
-  // }
   return (
     <div className="flex justify-start items-center flex-col h-screen font-sans-Inter">
       <div className=" relative w-full h-full">
@@ -29,7 +25,7 @@ const Login = () => {
             <img src={logo} width="600px" />
           </div>
           <div className="shadow-2xl bg-googleRed mb-4 w-30 h-15 rounded-md pr-2">
-            <Button onClick={signInWithGoogle}>
+            <Button onClick={signInWithGoogle} >
               <BsGoogle className="mr-2 ml-1 flex flex-row justify-center items-center saturate-0 brightness-200" />
               <span className='text-white '>Sign In With Google</span>
             </Button>
