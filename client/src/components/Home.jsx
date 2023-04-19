@@ -5,6 +5,7 @@ import {VscSymbolNamespace} from 'react-icons/vsc'
 import { Stack , FormHelperText, Select, MenuItem, Button } from '@mui/material';
 import EventIcon from './elements/EventIcon'
 import ProfileIcon from './elements/ProfileIcon'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -102,13 +103,15 @@ const Home = () => {
           <EventIcon/>
         </div>
       </div>
-      <div className='grid grid-flow-row justify-center font-medium pt-5 '>
+      <div className='grid grid-flow-row justify-center font-medium pt-5 mb-2 '>
       <div className='mb-2'>
          Didn't Find what you were looking for?
       </div>
+      <Link to ='./createevent'>
       <Button variant='contained' size='large' className='rounded-md pl-90 w-80'>
         Create Your Own !
       </Button>
+      </Link>
       </div>
     </div>
   )
