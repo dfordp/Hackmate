@@ -3,7 +3,7 @@ import { Routes,Route,useNavigate } from 'react-router-dom'
 
 import Login from './pages/Login'
 import Main from './pages/Main'
-
+import CreateEvent from './pages/CreateEvent'
 
 const App = () => {
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const App = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/*" element={<Main />} />
+      <Route path="/createevent" element={<CreateEvent />} />
     </Routes>
   )
 }

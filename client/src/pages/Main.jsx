@@ -1,9 +1,9 @@
 import React from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import { Header,Footer, Navbar, Home,MyEvents,Messages,MyProfile } from '../components'
 
 const Main = () => {
-
+  
   return (
     <div className='grid grid-flow-row bg-lightModeWhite'>
       <Header />

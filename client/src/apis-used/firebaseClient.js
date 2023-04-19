@@ -5,7 +5,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from 
 // dotenv.config();
 
 const firebaseConfig = {
-    
+   
   };
 
   const app = initializeApp(firebaseConfig);
