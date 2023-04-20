@@ -10,11 +10,11 @@ import {Link} from 'react-router-dom'
 const Home = () => {
   return (
     <div className='p-2'>
-      <div className='flex flex-col mr-8 ml-8 mb-2 h-60 rounded-md justify-center bg-component1'>
-        <div className='flex flex-row justify-center font-semibold text-2xl'>
+      <div className='flex flex-row mr-8 ml-8 mb-2 h-60 rounded-md justify-center bg-component1'>
+        <div className='flex flex-col justify-center font-semibold text-2xl mr-3'>
           Upcoming Event
         </div>
-        <div className='flex flex-row justify-center pt-2 font-light text-base'>
+        <div className='flex flex-col justify-center pt-1 font-light text-base'>
               <ul>
                 <li>
                   <VscSymbolNamespace className='inline-block mr-2' />
@@ -118,3 +118,4 @@ const Home = () => {
 }
 
 export default Home
+

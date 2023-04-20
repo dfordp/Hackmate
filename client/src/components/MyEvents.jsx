@@ -3,7 +3,7 @@ import EventIcon from './elements/EventIcon'
 
 const MyEvents = () => {
   return (
-    <div>
+    <div className='ml-2'>
        <div className='pt-5'>
         <div className='font-medium'>
           Upcoming Events

@@ -10,7 +10,8 @@ export default {
         googleRed:'#FF5555',
         githubBlack:'#000000',
         lightModeWhite:'#F8F8F8',
-        component1:"#D9D9D9"
+        component1:"#D9D9D9",
+        component2:"#A7A7A7",
       },
       fontFamily:{
         'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
