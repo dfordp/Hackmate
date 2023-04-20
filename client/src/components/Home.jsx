@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className='p-2'>
       <div className='flex flex-row mr-8 ml-8 mb-2 h-60 rounded-md justify-center bg-component1'>
-        <div className='flex flex-col justify-center font-semibold text-2xl mr-3'>
+        <div className='flex flex-col justify-center font-semibold text-2xl mr-4'>
           Upcoming Event
         </div>
         <div className='flex flex-col justify-center pt-1 font-light text-base'>
@@ -103,15 +103,17 @@ const Home = () => {
           <EventIcon/>
         </div>
       </div>
-      <div className='grid grid-flow-row justify-center font-medium pt-5 mb-2 '>
-      <div className='mb-2'>
-         Didn't Find what you were looking for?
-      </div>
-      <Link to ='./createevent'>
-      <Button variant='contained' size='large' className='rounded-md pl-90 w-80'>
-        Create Your Own !
-      </Button>
-      </Link>
+      <div className='grid grid-flow-row justify-center mt-2'> 
+        <div className='font-medium'>
+          Didn't find what you were looking for?
+        </div>
+        <div className='mt-2 ml-16'>
+        <Link to='/createevent'>
+          <Button variant='contained'  >
+            Create an Event
+          </Button>
+        </Link>
+        </div>
       </div>
     </div>
   )
