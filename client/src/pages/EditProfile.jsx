@@ -2,8 +2,10 @@ import React from 'react'
 
 const EditProfile = () => {
   return (
-    <div>
-      EditProfile
+    <div className='grid grid-flow-row'>
+      <div>
+        Edit Profile
+      </div>
     </div>
   )
 }
