@@ -81,7 +81,7 @@ const Home = () => {
       </div>
       <div className='pt-5'>
         <div className='font-medium'>
-          Events Around You
+          Exploring new Events
         </div>
         <div className='pt-2'>
           <EventIcon/>

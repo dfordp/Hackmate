@@ -2,6 +2,7 @@ import React from 'react'
 import {BsGithub , BsInstagram,BsTwitter,BsPencilFill} from 'react-icons/bs'
 import {Link, Routes ,Route, useNavigate} from 'react-router-dom'
 import EventIcon from './elements/EventIcon'
+import ProfileIcon from './elements/ProfileIcon'
 
 
 const MyProfile = () => {
@@ -65,6 +66,13 @@ const MyProfile = () => {
           </div>
           <EventIcon/>
         </div>
+        <div className='ml-2 mb-2'>
+          <div className='font-medium mb-2'>
+            Previously Connected With
+          </div>
+          <ProfileIcon/>
+        </div>
+        
     </div>
   )
 }

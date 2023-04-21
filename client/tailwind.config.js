@@ -27,6 +27,7 @@ export default {
       gap:{
         '100':'100px',
       },
+     
     },
   },
   plugins: [],
