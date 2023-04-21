@@ -2,13 +2,9 @@ import React from 'react'
 import {BsGithub , BsInstagram,BsTwitter,BsPencilFill} from 'react-icons/bs'
 import {Link, Routes ,Route, useNavigate} from 'react-router-dom'
 import EventIcon from './elements/EventIcon'
-import EditProfile from '../pages/EditProfile'
+
 
 const MyProfile = () => {
-  const navigate=useNavigate();
-  const handleEdit=()=>{
-    navigate('./editProfile')
-  }
   return (
     <div className='-space-z-50 mt-2'>
       <div className='flex flex-col'>
@@ -40,10 +36,12 @@ const MyProfile = () => {
         </div>   
         <div className='grid grid-flow-row justify-center'>
         <div className='mb-3'> 
-        <button onClick={handleEdit} className='flex flex-row bg-component1 rounded-full pr-2 scale-90'>
+        <Link to='./editprofile'>
+        <button className='flex flex-row bg-component1 rounded-full pr-2 scale-90'>
           <BsPencilFill className='text-black ml-2 mr-2 mt-1 scale-85'/>
            Edit Profile
         </button>
+        </Link>
         </div> 
         <div className='flex flex-row bg-component1 w-full rounded-md mb-2 pl-3 pr-3 '>
         Profile About
@@ -67,10 +65,6 @@ const MyProfile = () => {
           </div>
           <EventIcon/>
         </div>
-        <Routes>
-          <Route path='/*' element={<MyProfile/>}/>
-          <Route path='./editProfile' element={<EditProfile/>}/>
-        </Routes>
     </div>
   )
 }

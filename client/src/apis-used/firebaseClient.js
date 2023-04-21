@@ -5,7 +5,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from 
 // dotenv.config();
 
 const firebaseConfig = {
-   
+    apiKey: "AIzaSyBxW04er40-p9M0izU9qMQChWJEZP2n-rY",
+    authDomain: "hackmate-62123.firebaseapp.com",
+    projectId: "hackmate-62123",
+    storageBucket: "hackmate-62123.appspot.com",
+    messagingSenderId: "287787174086",
+    appId: "1:287787174086:web:50cb829a067a3795faafc7",
+    measurementId: "G-9RSDLCNZLS"
   };
 
   const app = initializeApp(firebaseConfig);
