@@ -7,12 +7,12 @@ const MyProfile = () => {
   return (
     <div className='-space-z-50 mt-2'>
       <div className='flex flex-col'>
-        <div className='bg-component2 h-60 rounded-md  ml-7 mr-7 '>
+        <div className='bg-component2 h-60 rounded-md  ml-7 mr-7 relative '>
           Bg image
         </div>
         <div className='flex flex-row justify-center z-10'>
-        <div className='bg-component1 w-40 h-40 rounded-full'>
-          Profile image
+        <div className='bg-component1 w-40 h-40 rounded-full -mt-20'>
+          <img src="" className="w-40 h-40 object-contain rounded-full"/>
         </div>
         </div>
         <div className='flex flex-row gap-2 justify-center scale-75 mt-2'>
