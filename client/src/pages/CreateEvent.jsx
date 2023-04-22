@@ -1,127 +1,86 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Header,Footer } from '../components'
 import {AiOutlineLeft} from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import { TextField,Button, MenuItem } from '@mui/material'
+import {Link} from 'react-router-dom'
+import { Button}  from '@mui/material'
 
-const typesOfEvent=[
-  {
-    value:'Web'
-  },
-  {
-    value:'Mobile'
-  },
-  {
-    value:'AI'
-  },
-  {
-    value:'IOT'
-  },
-]
 const CreateEvent = () => {
-  const [event, setEvent] = React.useState('none');
-  const handleChange = (event) => {
-    setEvent(event.target.value);
-  };
   return (
-  <div className='grid grid-flow-row'>
-   <Header className='justify-start'/>
     <div>
-      <div className='flex flex-row pt-3'>
+    <Header/>
+    <div className='mb-5'>
+      <div className='flex flex-col mb-5'>
+    <div className='flex flex-row justify-start'>
       <Link to ='/'> 
         <AiOutlineLeft className='mt-2 text-grey-100' />
       </Link>
       <h1 className='pt-1 ml-2'>Back to Home</h1>
       </div>
-      <div className='pt-2 pl-5 text-2xl font-bold'>
-          Create an Event
+    </div>
+    <div className='pt-2 pl-5 text-2xl font-bold'>
+          Create An Event
       </div>
-      <div className='grid grid-flow-row justify-center mt-10 scale-105 gap-5 mb-7'>
-      <div className='flex flex-col gap-2'> 
-      <div className='font-medium'>
-        Name of Event
-      </div>
+    <div className='flex flex-row justify-center'>
+      <div className='flex flex-col gap-2.5 pt-24 pl-10 w-2/5'>
       <div>
-        <TextField
-          id="standard-basic"
-          placeholder='Enter Name of the event'
-          />
+        Event Name
       </div>
-      </div>
-      <div className='flex flex-col gap-2'>
-      <div className='font-medium'>
+       <input 
+        className="flex text-black h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type="text" 
+        placeholder="Event Name"
+       />
+      <div>
         Event Type
       </div>
+       <input 
+        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type="text" 
+        placeholder="Event Type"
+  
+       />
       <div>
-        <TextField
-          id="standard-basic"
-          select
-          value={event}
-          onChange={handleChange}
-          helperText="Select Event Type"
-          >
-          {typesOfEvent.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.value}
-            </MenuItem>
-          ))}
-          </TextField>
-      </div>
-      </div>
-      <div className='flex flex-col gap-2'>
-      <div className='font-medium'>
         Event Location
       </div>
+        <input
+        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type='text'
+        placeholder='Event Location'
+        />
       <div>
-        <TextField
-          id="standard-basic"
-          placeholder='Enter Location of Event'
-          />
-      </div>
-      </div>
-      <div className='flex flex-col gap-2'>
-      <div className='font-medium'>
         Event Duration
       </div>
-      <div>
-        <TextField
-          id="standard-basic"
-          placeholder='Enter Event Duration'
-          />
-      </div>
-      </div>
-      <div className='flex flex-col gap-2'>
-      <div className='font-medium'>
+        <input
+        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type='text'
+        placeholder='Event Duration'
+        />
+        <div>
         Event Date
       </div>
-      <div>
-        <TextField
-          id="standard-basic"
-          placeholder='Enter Date of Event'
-          />
-      </div>
-      </div>
-      <div className='flex flex-col gap-2'>
-      <div className='font-medium'>
+        <input
+        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type='text'
+        placeholder='Event Date'
+        />
+        <div>
         Event Description
       </div>
-      <div >
-        <TextField
-          id="standard-basic"
-          placeholder='Enter Event Description (optional)'
-          required='false'
-          />
-      </div>
-      </div>
-      <div className='flex flex-row justify-center'>
-        <Button variant='contained' color='primary'>
+        <input
+        className="flex h-40 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+        type='text'
+        placeholder='Event Description'
+        />
+        <div className='flex flex-row justify-center mt-4'>
+        <Button variant="contained" color="primary" className='mt-5'>
           Create Event
         </Button>
-      </div>
-     </div>
-  <Footer/>
-  </div>
-  </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <Footer />
+    </div>
   )
 }
 
