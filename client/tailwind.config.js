@@ -12,6 +12,10 @@ export default {
         lightModeWhite:'#F8F8F8',
         component1:"#D9D9D9",
         component2:"#A7A7A7",
+        component3:"#DCDCDC",
+        component4:"#ECECEC",
+        component5:"#CACCD2",
+        component6:"#EAEAEA",
       },
       fontFamily:{
         'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
@@ -27,7 +31,9 @@ export default {
       gap:{
         '100':'100px',
       },
-     
+      margin:{
+        '30':'120px',
+      },
     },
   },
   plugins: [],
