@@ -4,7 +4,7 @@ import cors from "cors";
 
 import connectDB from "./mongodb/connect.js";
 
-import {userRouter} from "./routes/users.routes.js";
+import {userRouter}from "./routes/users.routes.js";
 import {chatRouter} from "./routes/chats.routes.js";
 import {eventRouter} from "./routes/events.routes.js";
 
@@ -16,7 +16,8 @@ app.use(express.json());
 
 app.get("/",(req,res)=>{
     res.send({message:"Hello World"});
-});{
+});
+
 app.use('/users',userRouter);
 app.use('/chats',chatRouter);
 app.use('/events',eventRouter);
