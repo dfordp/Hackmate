@@ -2,6 +2,8 @@ import React from 'react'
 import {AiOutlineLeft} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import { Button}  from '@mui/material'
+import GoogleStaticMaps from '../hooks/GoogleStaticMaps'
+
 
 const AboutEvent = () => {
   return (
@@ -23,7 +25,7 @@ const AboutEvent = () => {
         </div>
       </div>
       <div className='bg-component1 w-96 h-64 rounded-lg' >
-        Google Map Embed of Event Location
+        <GoogleStaticMaps />
       </div>
       </div>
       <div>
