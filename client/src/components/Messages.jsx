@@ -1,11 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {AiOutlineSend} from 'react-icons/ai'
+import socket from '../apis-used/socketClient'
 
 const Messages = () => {
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const [message, setMessage] = useState('')
+  const [messages, setMessages] = useState([])
+
+  useEffect(() => {
+    socket.on('message', (message) => {
+      setMessages((messages) => [...messages, message])
+    })
+  }, [])
+  
+  
+  const sendMessage = (event) => {
+    event.preventDefault()
+    if(message){
+      console.log(message)
+      socket.emit('sendMessage', message, () => setMessage(''))
+    }
   };
-  const [inputValue, setInputValue] = useState('')
+
   return (
     <div className='bg-component3 ml-5 mr-5 rounded-sm flex flex-row mb-7 h-max'>
         <div className='w-60 justify-start outline-2 outline-black'>
@@ -37,16 +52,22 @@ const Messages = () => {
             </div>
             <div class="border-t -mt-4 border-black"></div>
             <div className='justify-end bg-component1 pl-5 pt-12'>
+            {/* <div className=' flex flex-row bg-component5 mr-4 rounded-full h-8'> */}
+            <div>
+              {messages.map((message, i) => (
+                <div key={i}>{message.text}</div>
+              ))}
+            </div>
             <div className=' flex flex-row bg-component5 mr-4 rounded-full h-8'>
             <input
               type="text"
-              value={inputValue}
-              onChange={handleInputChange}
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
               placeholder="Type your message..."
               className='bg-component5 w-5/6 h-8 rounded-full outline-none pl-3 mr-36'
             />
             <button
-              onClick={() => console.log(inputValue)}
+              onClick={(event) => sendMessage(event)}
               className='justify-end scale-125'
             >
               <AiOutlineSend />

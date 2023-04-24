@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
-// import * as dotenv from "dotenv";
 
-// dotenv.config();
 
 const firebaseConfig = {
     
   };
+
+  console.log(import.meta.env.VITE_FIREBASE_API_KEY)
 
   const app = initializeApp(firebaseConfig);
 

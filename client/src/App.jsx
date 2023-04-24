@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { Routes,Route,useNavigate } from 'react-router-dom'
-
+// import * as dotenv from 'dotenv'
 import Login from './pages/Login'
 import Main from './pages/Main'
 import CreateEvent from './pages/CreateEvent'
 
 const App = () => {
+  // dotenv.config();
   const navigate = useNavigate();
   useEffect(() => {
     const User =localStorage.getItem('name') !== undefined ? localStorage.getItem('name') : localStorage.clear();
