@@ -7,9 +7,17 @@ import { Button } from '@mui/material'
 import { signInWithGoogle,signInWithGithub } from '../apis-used/firebaseClient.js'
 
 
-const Login = () => {
+const Login = () => {   
+  const navigate = useNavigate()
+  // const navigateTohome = () => {
+  //   navigate('/home')
+  // }
+  // const handleGoogleClick = () => {
+  //   signInWithGoogle()
+  //   navigateTohome()
+  // }
   return (
-    <div className="flex justify-start items-center flex-col h-screen font-sans-Inter">
+    <div className="flex justify-start items-center flex-col h-screen">
       <div className=" relative w-full h-full">
       <video
           src={video}

@@ -3,10 +3,9 @@ import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from 
 
 
 const firebaseConfig = {
-    
+   
   };
 
-  console.log(import.meta.env.VITE_FIREBASE_API_KEY)
 
   const app = initializeApp(firebaseConfig);
 

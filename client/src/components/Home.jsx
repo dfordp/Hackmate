@@ -6,6 +6,7 @@ import { Stack , FormHelperText, Select, MenuItem, Button } from '@mui/material'
 import EventIcon from './elements/EventIcon'
 import ProfileIcon from './elements/ProfileIcon'
 import {Link} from 'react-router-dom'
+import GoogleGeolocation from '../hooks/GoogleGeolocation';
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
       </div>
       <div className='pt-3'>
         <div className='flex flex-row gap-2 justify-end pr-9'>
+             <GoogleGeolocation className='mt-5'/>
                 Show 
                 <Stack direction="row">
                 <FormHelperText>
@@ -45,6 +47,8 @@ const Home = () => {
                     <MenuItem value="All">All</MenuItem>
                     <MenuItem value="Web">Web</MenuItem>
                     <MenuItem value="Android">Android</MenuItem>
+                    <MenuItem value="ML">IOS</MenuItem>
+                    <MenuItem value="ML">CrossPlatform</MenuItem>
                     <MenuItem value="AI">AI</MenuItem>
                     <MenuItem value="IOT">IOT</MenuItem>
                 </Select>

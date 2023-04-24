@@ -6,7 +6,7 @@ import AboutEvent from './AboutEvent'
 const Main = () => {
   
   return (
-    <div className='grid grid-flow-row bg-lightModeWhite'>
+    <div className='grid grid-flow-row bg-lightModeWhite font-sans-Inter '>
       <Header />
       <Navbar />
       <div>

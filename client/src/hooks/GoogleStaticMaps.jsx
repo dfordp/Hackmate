@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, redirect } from 'react-router-dom'
 
 const GoogleStaticMaps = () => {
-    const apiKey = 
+    const apiKey = ''
     const center = '40.714728,-73.998672'
     const zoom = '15'
     const size = '600x400'
