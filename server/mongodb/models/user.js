@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     previousEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
     createdEvents: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
     interestedIn: [{type: mongoose.Schema.Types.ObjectId, ref: "Event"}],
+    previouslyConnectWith: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
     githubUsername: {type: String, required: false},
     instaUsername: {type: String, required: false},
     twitterUsername: {type: String, required: false},

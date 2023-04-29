@@ -5,7 +5,7 @@ import redisClient from "./redis/redisClient.js";
 import RedisStore from "connect-redis";
 import session from "express-session";
 import http from "http";
-import socketIO from "socket.io";
+import {Server} from "socket.io";
 
 import connectDB from "./mongodb/connect.js";
 
@@ -19,15 +19,15 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = new Server(server);
 
 app.get("/",(req,res)=>{
     res.send({message:"Hello World"});
 });
 
-app.use('/users',userRouter);
-app.use('/chats',chatRouter);
-app.use('/events',eventRouter);
+app.use('/api/v1/users',userRouter);
+app.use('/api/v1/chats',chatRouter);
+app.use('/api/v1/events',eventRouter);
 
 app.use(
     session({
