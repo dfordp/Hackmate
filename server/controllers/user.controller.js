@@ -2,28 +2,29 @@ import User from '../mongodb/models/user.js';
 
 
 const getALLUsers = async (req, res) => {
-    try{
-        const users = await User.find({}).limit(req.query.end);
+    try {
+        const users = await User.find();
         res.status(200).json(users);
-    } catch(error){
-        res.status(500).json({message:error.message});
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message });
     }
 };
 
 const createUser = async (req, res) => {
     try{
-        const {name ,email , userName} = req.body;
-        const userExists = await User.findOne({email});
-        if(userExists){
-            res.status(200).json(userExists)
-    }
-
+        const {name, email, userName ,avatar} = req.body;
+        const userExist = User.findOne({email});
+        if (userExist) {
+            res.status(400).json({message:"User already exists"});
+        }
+        const temp = Math.floor(Math.random() * 6)+1;
     const newUser = await User.create({
         name,
         email,
         userName,
-        avatar,
-        bgImage,
+        avatarImage:avatar,
+        bgImage : "../../assests/bg-images/"+temp+".jpg",
         userAbout:"Passionate Bootscript Developer",
         createdEvents:[],
         previousEvents:[],
@@ -34,6 +35,7 @@ const createUser = async (req, res) => {
         twitterUsername:"",
         reportedBy:0,
     });
+    NewUser.save();
     res.status(201).json(newUser);
     } catch(error){
         res.status(500).json({message:error.message});

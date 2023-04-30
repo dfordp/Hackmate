@@ -77,7 +77,7 @@ const CreateEvent = () => {
       <div>
         Event Location
       </div>
-      <LoadScript googleMapsApiKey="AIzaSyBqlp-bgGdN5ay3usGAEXLq7E2v4l1Hybs">
+      <LoadScript googleMapsApiKey="">
         <Autocomplete  onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <SearchBoxLocation />
         </Autocomplete>

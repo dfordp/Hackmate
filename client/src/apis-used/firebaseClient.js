@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider,GithubAuthProvider } from "firebase/auth";
-// import { createUser } from "../../../server/controllers/user.controller";
+import axios from "axios";
 
 const firebaseConfig = {
-    
+   
   };
 
 
@@ -13,37 +13,35 @@ const firebaseConfig = {
 
   const googleProvider=new GoogleAuthProvider()
 
+
+  const sendUserData = async (data) => {
+    try{
+        const res = await axios.post("http://localhost:8080/api/users/createUser", data )
+        console.log(res);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 export const signInWithGoogle= ()=>{
     signInWithPopup(auth,googleProvider).then((result)=>{
-        const userProfile={
-            name : result._tokenResponse.displayName,
-            email : result._tokenResponse.email,
-            userName : result._tokenResponse.email.split("@")[0],
+        const name = result._tokenResponse.displayName
+        const email = result._tokenResponse.email
+        const userName = result._tokenResponse.email.split("@")[0]
+        const avatar = result.user.photoURL
+        const data ={
+            name : name,
+            email : email,
+            userName : userName,
+            avatar : avatar
         }
-      
-        const saveUser = async (userProfile) => {
-            if(userProfile){
-                const res = await fetch("http:/localhost:8080/api/users",{
-                    method:"POST",
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-                    body:JSON.stringify(userProfile)
-                })
-                console.log(res);
-                const data = await res.json()
-                if (res.status === 200) {
-                    localStorage.setItem(
-                        "user",
-                        userProfile
-                    )
-                }
-            }
-        };
-        saveUser(userProfile);
+
+        sendUserData(data)
         // localStorage.setItem("name",name)
         // localStorage.setItem("email",email)
         // localStorage.setItem("profilePic",profilePic)   
+        // localStorage.setItem("userName",userName)
     }).catch((error) => {
         console.log(error);
     });

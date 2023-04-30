@@ -4,10 +4,10 @@ import { getALLUsers,createUser,getUserInfoById ,updateUser , deleteUser} from '
 
 const router = express.Router();
 
-router.route('/').get(getALLUsers);
-router.route('/:id').get(getUserInfoById);
-router.route('/').post(createUser);
-router.route('/:id').patch(updateUser);
-router.route('/:id').delete(deleteUser);
+router.route('/getAllUsers').get(getALLUsers);
+router.route('/find/:id').get(getUserInfoById);
+router.route('/createUser').post(createUser);
+router.route('/update/:id').patch(updateUser);
+router.route('/delete/:id').delete(deleteUser);
 
 export default router;

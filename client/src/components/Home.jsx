@@ -51,6 +51,10 @@ const Home = () => {
                     <MenuItem value="ML">CrossPlatform</MenuItem>
                     <MenuItem value="AI">AI</MenuItem>
                     <MenuItem value="IOT">IOT</MenuItem>
+                    <MenuItem value="Cloud">Cloud</MenuItem>
+                    <MenuItem value="Blockchain">Blockchain</MenuItem>
+                    <MenuItem value="CyberSecurity">CyberSecurity</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
                 </Select>
               </FormHelperText>
               </Stack>
