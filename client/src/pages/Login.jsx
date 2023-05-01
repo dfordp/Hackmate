@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import video from '../../public/pexels-fauxels-3255275-3840x2160-25fps.mp4'
 import {BsGoogle,BsGithub} from 'react-icons/bs'
 import { Button } from '@mui/material'
-import { signInWithGoogle,signInWithGithub } from '../apis-used/firebaseClient.js'
+import { signInWithGoogle } from '../apis-used/firebaseClient.js'
 
 
 const Login = () => {   
@@ -38,12 +38,12 @@ const Login = () => {
               <span className='text-white '>Sign In With Google</span>
             </Button>
           </div>
-          <div className="shadow-2xl bg-githubBlack mb-2 w-19 h-15 rounded-md pr-3">
+          {/* <div className="shadow-2xl bg-githubBlack mb-2 w-19 h-15 rounded-md pr-3">
             <Button onClick={signInWithGithub}>
               <BsGithub className="scale-110 mr-3 ml-1 flex flex-row justify-center items-center saturate-0 brightness-200" />
               <span className='text-white '>Sign In With Github</span>
             </Button>
-          </div>
+          </div> */}
          </div>
       </div>
     </div>

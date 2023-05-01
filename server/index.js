@@ -15,13 +15,14 @@ import eventRouter from "./routes/events.routes.js";
 
 dotenv.config();
 
+// const corsHeaders = {
+//     "Access-Control-Allow-Origin": "*",
+//     "Access-Control-Allow-Methods": "GET,POST,PUT,PATCH,DELETE",
+//     "Access-Control-Allow-Headers": "x-access-token, Origin, X-Requested-With, Content-Type, Accept",
+// }
 
 const app=express();
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','*');
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    next();
-});
+app.use(cors());
 app.use(express.json());
 // const server = http.createServer(app);
 // const io = new Server(server);

@@ -18,6 +18,7 @@ const firebaseConfig = {
   const sendUserData = async (data) => {
     try{
         const res = await axios.post("http://localhost:8080/api/users/createUser", data )
+        console.log(res.data);
     }
     catch(error){
         console.log(error);
@@ -50,30 +51,29 @@ export const signInWithGoogle= ()=>{
 }
 
 
-export const signInWithGithub=()=>{
-    signInWithPopup(auth,githubProvider).then((result)=>{
-        console.log(result);
-        const name = result._tokenResponse.displayName
-        const email = result._tokenResponse.email
-        const userName = result._tokenResponse.screenName
-        const avatar = result._tokenResponse.photoURL
+// export const signInWithGithub=()=>{
+//     signInWithPopup(auth,githubProvider).then((result)=>{
+//         const name = result._tokenResponse.displayName
+//         const email = result._tokenResponse.email
+//         const userName = result._tokenResponse.screenName
+//         const avatar = result._tokenResponse.photoURL
 
-        const data ={
-            name : name,
-            email : email,
-            userName : userName,
-            avatar : avatar
-        }
+//         const data = {
+//             name : name,
+//             email : email,
+//             userName : userName,
+//             avatar : avatar
+//         }
 
-        sendUserData(data)
-        localStorage.setItem("name",name)
-        localStorage.setItem("email",email)
-        localStorage.setItem("profilePic",avatar)
-        localStorage.setItem("userName",userName)
-        window.location.reload();
-    }).catch((error)=>{
-        console.log(error);
-    })
+//         sendUserData(data)
+//         // localStorage.setItem("name",name)
+//         // localStorage.setItem("email",email)
+//         // localStorage.setItem("profilePic",avatar)
+//         // localStorage.setItem("userName",userName)
+//         // window.location.reload();
+//     }).catch((error)=>{
+//         console.log(error);
+//     })
 
 
-}
+// }

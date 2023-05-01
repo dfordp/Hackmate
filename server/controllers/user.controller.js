@@ -14,12 +14,14 @@ const getALLUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try{
         const {name, email, userName ,avatar} = req.body;
-        const userExist = User.find({email:email});
+        const userExist = User.findOne({userName:userName, email:email , name:name});
         if(userExist){
-            res.status(409).json({message:"User already exists"});
+            const user = await fetch("http://localhost:8080/api/users/getUser/"+userExist._id);
+            res.status(200).json(user);
         }
+        else{
         const temp = Math.floor(Math.random() * 6)+1;
-    const newUser = await User.create({
+        const newUser = await User.create({
         name,
         email,
         userName,
@@ -35,7 +37,9 @@ const createUser = async (req, res) => {
         twitterUsername:"",
         reportedBy:0,
     });
+    await newUser.save();
     res.status(201).json(newUser);
+}
     } catch(error){
         res.status(500).json({message:error.message});
     }
