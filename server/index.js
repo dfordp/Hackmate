@@ -15,8 +15,13 @@ import eventRouter from "./routes/events.routes.js";
 
 dotenv.config();
 
+
 const app=express();
-app.use(cors());
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    next();
+});
 app.use(express.json());
 // const server = http.createServer(app);
 // const io = new Server(server);
@@ -43,7 +48,7 @@ app.use(
 
 const startServer=async()=>{
     try{
-        connectDB(process.env.MONGO_URL);
+        connectDB("");
         app.listen(8080, ()=>console.log("Server started on http://localhost:8080"));
     } catch(error){
         console.log(error);

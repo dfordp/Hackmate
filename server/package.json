@@ -11,8 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dicebear/collection": "^6.0.3",
-    "@dicebear/core": "^6.0.3",
     "connect-redis": "^7.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

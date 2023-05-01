@@ -7,7 +7,7 @@ import { Link ,useNavigate} from 'react-router-dom'
 
 const Header = () => {
   const navigate = useNavigate()
-  const avatar =localStorage.getItem('profilePic')
+  const avatar = localStorage.getItem("profilePic")
   const homeNavigate  = () => navigate('/') 
     return (
     <div className='grid grid-flow-col'>
