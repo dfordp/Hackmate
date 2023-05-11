@@ -12,6 +12,8 @@ const GoogleGeolocation = () => {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             });
+            localStorage.setItem('latitude', position.coords.latitude);
+            localStorage.setItem('longitude', position.coords.longitude);
           },
           (error) => {
             console.log(error);

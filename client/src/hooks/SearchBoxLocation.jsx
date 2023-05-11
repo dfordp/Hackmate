@@ -1,35 +1,54 @@
-import React from 'react';
-import usePlacesAutocomplete from 'use-places-autocomplete';
+import React, { useRef, useEffect  } from 'react';
+import { useLoadScript, Autocomplete } from '@react-google-maps/api';
 
-function SearchBox() {
-  const [inputValue, setInputValue] = useState('');
-  const { suggestions, setValue } = usePlacesAutocomplete();
+const libraries = ['places'];
 
-   const handleInput = (e) => {
-    setInputValue(e.target.value);
-    setValue(e.target.value);
+const SearchBoxLocation = ({value, onChange}) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: '',
+    libraries,
+  });
+  
+
+  const autocompleteRef = useRef(null);
+  const inputRef = useRef(null);
+
+  const handlePlaceChanged = () => {
+    const place = autocompleteRef.current.getPlace();
+    const geocode = {
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+    };
+    setInputValue(place.name);
+    console.log('Selected place:', place.name, geocode);
   };
 
-  const handleSelect = (description) => {
-    setInputValue(description);
-    setValue(description, false);
-  };
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.addEventListener('focus', () => {
+        setInputValue('');
+      });
+    }
+  }, []);
+
+  if (loadError) return <div>Error loading Google Maps API</div>;
+  if (!isLoaded) return <div>Loading Google Maps API...</div>;
 
   return (
-    <div>
-      <input value={inputValue} onChange={handleInput} placeholder="Search..." />
-      {suggestions.status === 'OK' && (
-        <ul>
-          {suggestions.data.map((suggestion) => (
-            <li key={suggestion.place_id} onClick={() => handleSelect(suggestion.description)}>
-              {suggestion.description}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <Autocomplete
+      onLoad={(ref) => (autocompleteRef.current = ref)}
+      onPlaceChanged={handlePlaceChanged}
+    >
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="Enter a location"
+        className="location-input"
+        value={value}
+        onChange={onChange}
+      />
+    </Autocomplete>
   );
-}
+};
 
-
-export default SearchBox;
+export default SearchBoxLocation

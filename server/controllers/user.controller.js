@@ -14,7 +14,7 @@ const getALLUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try{
         const {name, email, userName ,avatar} = req.body;
-        const userExist = User.findOne({userName:userName, email:email , name:name});
+        const userExist = await User.findOne({userName:userName, email:email , name:name});
         if(userExist){
             const user = await fetch("http://localhost:8080/api/users/getUser/"+userExist._id);
             res.status(200).json(user);

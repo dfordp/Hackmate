@@ -49,7 +49,7 @@ app.use(
 
 const startServer=async()=>{
     try{
-        connectDB("");
+        connectDB("mongodb+srv://dilpreetgrover2:kratoS110!@cluster0.hevrftx.mongodb.net/?retryWrites=true&w=majority");
         app.listen(8080, ()=>console.log("Server started on http://localhost:8080"));
     } catch(error){
         console.log(error);

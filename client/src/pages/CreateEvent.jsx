@@ -4,35 +4,41 @@ import {AiOutlineLeft} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import { Button}  from '@mui/material'
 import SearchBoxLocation from '../hooks/SearchBoxLocation'
-import { LoadScript, Autocomplete } from '@react-google-maps/api';
-
-const defaultCenter = {
-  lat: -3.745,
-  lng: -38.523
-};
+import axios from 'axios'
 
 
 const CreateEvent = () => {
-  const [map, setMap] = useState(null);
-  const [center, setCenter] = useState(defaultCenter);
-  const autocompleteRef = useRef(null);
 
-
-  const onLoad = useCallback((autocomplete) => {
-    autocompleteRef.current = autocomplete;
-  }, []);
-
-  const onPlaceChanged = useCallback(() => {
-    const place = autocompleteRef.current.getPlace();
-
-    if (place.geometry) {
-      setCenter({
-        lat: place.geometry.location.lat(),
-        lng: place.geometry.location.lng()
-      });
-      map.setZoom(15);
+  const submitForm = async (inputValues) => {
+    try {
+    const response = await axios.post("http://localhost:8080/api/events/createEvent", inputValues)
+    console.log(response)
+    } catch (error) {
+      console.log(error)
     }
-  }, [map]);
+  }
+  
+
+  const [inputValues, setInputValues] = useState({
+    eventName: '',
+    eventType: '',
+    eventLocation: '',
+    eventDuration: '',
+    eventDate: '',
+    eventDescription: '',
+    createdBy: localStorage.getItem('id'),
+  });
+
+  const handleChanges = (event, inputName) => {
+    setInputValues({ ...inputValues, [inputName]: event.target.value });
+  };
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  console.log(inputValues);
+  submitForm(inputValues)
+}
+
 
   return (
     <div>
@@ -57,14 +63,16 @@ const CreateEvent = () => {
        <input 
         className=""
         type="text" 
+        onChange={(event) => handleChanges(event, 'eventName')}
         placeholder="Event Name"
        />
       <div>
         Event Type
       </div>
        <select
-        className=""
+        className="w-full"
         type="text" 
+        onChange={(event) => handleChanges(event, 'eventType')}
         placeholder="Event Type"
        >
           <option value="Web">Web</option>
@@ -73,21 +81,25 @@ const CreateEvent = () => {
           <option value="ML">CrossPlatform</option>
           <option value="AI">AI</option>
           <option value="IOT">IOT</option>
+          <option value="Cloud">Cloud</option>
+          <option value="Blockchain">Blockchain</option>
+          <option value="CyberSecurity">CyberSecurity</option>
+          <option value="Other">Other</option>
        </select>
       <div>
         Event Location
       </div>
-      <LoadScript googleMapsApiKey="">
-        <Autocomplete  onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-          <SearchBoxLocation />
-        </Autocomplete>
-      </LoadScript>
-      <div>
+       <SearchBoxLocation 
+        value={inputValues.eventLocation}
+        onChange={(event) => handleChanges(event, 'eventLocation')}
+       />
+       <div>
         Event Duration
       </div>
         <input
         className=""
         type='text'
+        onChange={(event) => handleChanges(event, 'eventDuration')}
         placeholder='Event Duration'
         />
         <div>
@@ -96,6 +108,7 @@ const CreateEvent = () => {
         <input
         className=""
         type='date'
+        onChange={(event) => handleChanges(event, 'eventDate')}
         placeholder='Event Date'
         />
         <div>
@@ -104,10 +117,11 @@ const CreateEvent = () => {
         <input
         className=""
         type='text'
+        onChange={(event) => handleChanges(event, 'eventDescription')}
         placeholder='Event Description'
         />
         <div className='flex flex-row justify-center mt-4'>
-        <Button variant="contained" color="primary" className='mt-5'>
+        <Button onClick={handleSubmit} variant="contained" color="primary" className='mt-5'>
           Create Event
         </Button>
         </div>

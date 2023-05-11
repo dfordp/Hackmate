@@ -26,30 +26,57 @@ const getEventDetailsById = async (req, res) => {
     }
 };
 
+const getLocationGeocode = async (req, res) => {
+    try{
+        const {locationName} = req.body;
+        const apiKey = ""
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${locationName}&key=${apiKey}`;
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        const {lat,lng} = data.results[0].geometry.location;
+        res.status(200).json({lat,lng});
+    }
+    catch(error){
+        res.status(500).json({message:error.message});
+    }
+};
 
 const createEvent = async (req, res) => {
     try{
-        const { name, description, type, locationName, latitide, longitude, duration, date , createdBy } = req.body;
+       const { eventName , eventDescription , eventType , eventLocation , eventDuration , eventDate , createdBy} = req.body 
 
-        const eventExists = await Event.findOne({name,createdBy});
+       const eventExists = Event.findOne({eventName:eventName , createdBy:createdBy , eventType:eventType , eventLocation:eventLocation});
+
         if(eventExists){
-            res.status(200).json(eventExists)
+            res.status(202).json({message:"Event already exists"});
         }
 
-        const newEvent = await Event.create({
-            name,
-            description,
-            type,
-            locationName,
-            latitide:0.00,
-            longitude:0.00,
-            duration,
-            date,
-            createdBy,
-        });
-        res.status(201).json(newEvent);
-        User.findByIdAndUpdate(createdBy,{$push:{createdEvents:newEvent._id}});
-    }   
+        else{
+
+            const {latitude , longitude} = await getLocationGeocode(eventLocation);
+
+            const type = eventType.lowerCase();
+            const eventPic = "../../assests/event-pics/" + type + ".jpg";
+
+            const newEvent = await Event.create({
+                eventName : eventName,
+                eventDescription : eventDescription,
+                eventType : eventType,
+                eventLocation : eventLocation,
+                latitude : latitude,
+                longitude : longitude,
+                eventDuration : eventDuration,
+                eventDate : eventDate,
+                createdBy : createdBy,
+                interestedUsers : [],
+                eventPic : eventPic,
+            });
+            newEvent.save();
+            res.status(200).json(newEvent);
+        }
+    
+}
     catch(error){
         res.status(500).json({message:error.message});
     } 
@@ -58,7 +85,7 @@ const createEvent = async (req, res) => {
 
 const updateEvent = async (req, res) => {
     try{
-        const { name, description, type, locationName, location, duration, date  } = req.body;
+        const { name, description, type, locationName, duration, date  } = req.body;
         const {id} = req.params;
 
         const Event = await Event.findById(id);
