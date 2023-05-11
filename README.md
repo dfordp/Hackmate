@@ -66,6 +66,6 @@ There will be three major tables
 
 # Built by  
 
-→ [Dillpreet Grover](https://github.com/dfordp)
+→ [Dilpreet Grover](https://github.com/dfordp)
 
 → [Kajol Shah](https://github.com/Kajolshah29) 
