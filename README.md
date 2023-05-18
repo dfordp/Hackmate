@@ -64,8 +64,8 @@ There will be three major tables
 
 <br>
 
-<!-- # Built by  
+# Built by  
 
 → [Dilpreet Grover](https://github.com/dfordp)
 
-→ [Kajol Shah](https://github.com/Kajolshah29)  -->
+→ [Kajol Shah](https://github.com/Kajolshah29) 
